@@ -1,79 +1,85 @@
-/*fn largest_<T>(list: &[T]) -> T {
-    let mut largest = list[0];
-    for &item in list.iter() {
-        if item > largest {
-            largest = item;
-        }
-    }
-    largest
-}*/
-
-fn largest<T: PartialOrd>(list: &[T]) -> &T {
-    let mut largest = &list[0];
-    for item in list {
-        if item > largest {
-            largest = item;
-        }
-    }
-    largest
-}
-
-fn largest_(list: &[i32]) -> i32 {
-    let mut largest = list[0];
-    for &item in list.iter() {
-        if item > largest {
-            largest = item;
-        }
-    }
-    largest
-}
-
-fn largest_char(list: &[char]) -> char {
-    let mut largest = list[0];
-    for &item in list.iter() {
-            if item > largest {
-            largest = item;
-            }
-    }
-    largest
-}
-
+// HashMap
 fn main() {
-    let number_list = vec![250, 50, 25, 100, 65];
-    /*let mut largest = number_list[0];
-    for number in number_list {
-        if number > largest {
-            largest = number;
-        }
-    }*/
+    use std::collections::HashMap;
+    let mut scores = HashMap::new();
+    scores.insert(String::from("Синяя"), 10);
+    scores.insert(String::from("Желтая"), 50);
 
-    // let largest = largest_(&number_list);
-    let result1 = largest(&number_list);
+    let field_name = String::from("Любимый цвет");
+    let field_value = String::from("Синий");
+    let mut map = HashMap::new();
+    map.insert(&field_name, field_value);
 
-    println!("Наибольшее число равно {}", result1);
+    println!("Третий элемент равен {}", field_name);
 
-    let char_list = vec!['y', 'm', 'a', 'q'];
-    // let result = largest_char(&char_list);
-    let result2 = largest(&char_list);
-    println!("Наибольший символ равен {}", result2);
+    let mut scores = HashMap::new();
+    scores.insert(String::from("Синяя"), 10);
+    scores.entry(String::from("Желтая")).or_insert(50);
+    scores.entry(String::from("Синяя")).or_insert(50);
+    println!("{:?}", scores);
 }
 
-/*use std::fs::File;
-fn main() {
-    let f = File::open("hello.txt");
-    let f = match f {
-        Ok(file) => file,
-        Err(error) => {
-            panic!("Проблема с открытием файла: {:?}", error)
-        },
-    };
-}*/
+// тип String
+/*fn main() {
+    let mut hello = String::from("Olá");
+
+    println!("Третий элемент равен {}", hello);
+
+    hello.push_str("bar");
+
+    println!("Третий элемент равен {}", hello);
+
+    let s1 = String::from("tic");
+    let s2 = String::from("tac");
+    let s3 = String::from("toe");
+    let s = s1 + "-" + &s2 + "-" + &s3;
+
+    println!("{}", s);
+
+    let s11 = String::from("tic");
+    let s = format!("{}-{}-{}", s11, s2, s3);
+
+    println!("{}", s);
+
+    let len1 = String::from("Hola").len();
+    println!("{}", len1);
+
+    let len2 = String::from("Здравствуйте").len();
+    println!("{}", len2);
+
+    for c in "Здравствуйте".chars() {
+        println!("{}", c);
+    }
+
+    // графемный кластер
+    /*use unicode_segmentation::UnicodeSegmentation;
+
+    let s = "é😊";
+    let graphemes = s.graphemes(true).collect::<Vec<&str>>();
+    println!("{:?}", graphemes); // ["é", "😊"]*/
+}*/    
 
 /*fn main() {
-    //panic!("полное фиаско");
+    // объявление вектора
+    // let v: Vec<i32> = Vec::new();
+    // или
+    let mut v = vec![1, 2, 3];
 
-    let v = vec![1, 2, 3];
-    v[99];
+    // вставка элементов
+    v.push(5);
+    // v.push("Hello, world!"); ERROR
 
-    // $env:RUST_BACKTRACE="1"; cargo run
+    // получение значения по индексу
+    let third: &i32 = &v[2];
+    println!("Третий элемент равен {}", third);
+
+    match v.get(6) {
+        Some(third) => println!("Третий элемент равен {}", third),
+        None => println!("Третий элемент отсутствует."),
+    }
+
+    // перебор элементов
+    for i in &v {
+        println!("{}", i);
+    }
 }*/
