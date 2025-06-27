@@ -1,4 +1,76 @@
+/// Adds two to a number.
+///
+/// # Examples
+///
+/// ```
+/// let result = my_crate::add_two(2); // Исправлено на add_two
+/// assert_eq!(result, 4); // 2 + 2 = 4
+/// ```
+pub fn add_two(a: i32) -> i32 {
+    internal_adder(a, 2)
+}
+
+fn internal_adder(a: i32, b: i32) -> i32 {
+    a + b
+}
+
 #[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn internal() {
+        assert_eq!(4, internal_adder(2, 2));
+    }
+}
+
+/*pub fn add_two(a: i32) -> i32 {
+    a + 2
+}
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn add_two_and_two() {
+        assert_eq!(4, add_two(2));
+    }
+    #[test]
+    fn add_three_and_two() {
+        assert_eq!(5, add_two(3));
+    }
+    #[test]
+    fn one_hundred() {
+        assert_eq!(102, add_two(100));
+    }
+}*/
+
+/*pub fn greeting(name: &str) -> String {
+    // format!("Здравствуй {}!", name)
+    String::from("Здравствуй!") // ошибка
+}
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn greeting_contains_name() {
+        let result = greeting("Кэрол");
+        assert!(result.contains("Кэрол"));
+    }
+}*/
+
+/*pub fn add_two(a: i32) -> i32 {
+    a + 2
+    a + 3 // ошибка
+}
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn it_adds_two() {
+        assert_eq!(4, add_two(2));
+    }
+}*/
+
+/*#[cfg(test)]
 mod tests {
     use super::*;
 
@@ -33,4 +105,4 @@ impl Rectangle {
     pub fn can_hold(&self, other: &Rectangle) -> bool {
         self.length > other.length && self.width > other.width
     }
-}
+}*/
